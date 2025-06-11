@@ -51,6 +51,12 @@ body {
     z-index: 2;
 }
 
+.header-music {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 .title {
     font-family: 'Parisienne', cursive;
     font-size: 5rem;
@@ -170,8 +176,9 @@ body {
     margin-bottom: 25px;
     position: relative;
     padding-left: 20px;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1; /* Changed from 0 to 1 to ensure text is visible */
+    transform: translateY(0); /* Changed from 20px to 0 */
+    color: #333; /* Added for better contrast */
 }
 
 .paragraph::before {
@@ -234,13 +241,13 @@ body {
 }
 
 .music-btn {
-    width: 50px;
+    width: auto;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 25px;
     background: var(--primary);
     color: white;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -248,10 +255,12 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     margin-right: 20px;
+    padding: 0 20px;
+    gap: 8px;
 }
 
 .music-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background: var(--secondary);
 }
 
@@ -285,101 +294,7 @@ body {
     animation: heartbeat 1.5s infinite;
 }
 
-/* Cursor Effects */
-.cursor, .cursor-follower {
-    position: fixed;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-}
-
-.cursor {
-    width: 8px;
-    height: 8px;
-    background: white;
-    transition: width 0.3s, height 0.3s;
-}
-
-.cursor-follower {
-    width: 30px;
-    height: 30px;
-    border: 2px solid white;
-    transition: all 0.3s ease;
-}
-
-/* Floating Elements */
-.floating-hearts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.floating-hearts::before {
-    content: "❤️";
-    position: absolute;
-    font-size: 20px;
-    opacity: 0;
-    animation: float-up 8s linear infinite;
-}
-
-.sparkles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.sparkles::before {
-    content: "✦";
-    position: absolute;
-    color: var(--primary);
-    font-size: 16px;
-    opacity: 0;
-    animation: sparkle 3s linear infinite;
-}
-
 /* Animations */
-@keyframes float-up {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-@keyframes sparkle {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
-
 @keyframes equalize {
     0%, 100% {
         height: 10px;
@@ -438,5 +353,12 @@ body {
     .seal {
         width: 50px;
         height: 50px;
+    }
+    
+    .header-music {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 20px;
     }
 }
